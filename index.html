@@ -136,10 +136,18 @@ text-decoration:none;
 border-radius:40px;
 font-weight:bold;
 margin-top:15px;
+box-shadow:0 0 15px gold;
 }
 
 .btn:hover{
-transform:scale(1.05);
+transform:scale(1.08);
+
+box-shadow:
+0 0 20px gold,
+0 0 40px gold,
+0 0 60px gold;
+
+transition:.3s;
 }
 
 /* SECTION */
@@ -217,11 +225,17 @@ border-radius:25px;
 border:1px solid #222;
 transition:.4s;
 text-align:center;
+box-shadow:0 0 15px rgba(255,215,0,.15);
 }
 
 .plan:hover{
-transform:translateY(-10px);
-box-shadow:0 0 20px gold;
+transform:translateY(-12px);
+
+box-shadow:
+0 0 20px gold,
+0 0 40px rgba(255,215,0,.6);
+
+border:1px solid gold;
 }
 
 .popular{
@@ -604,7 +618,9 @@ Name: ${name}
 Phone: ${phone}
 
 Email: ${email}`;
-
+  
+alert("Application Submitted Successfully! We will contact you soon.");
+  
 window.open(
 `https://wa.me/916201808179?text=${encodeURIComponent(message)}`,
 '_blank'
