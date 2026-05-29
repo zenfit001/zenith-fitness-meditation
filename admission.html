@@ -44,7 +44,79 @@ color:#ccc;
 text-align:center;
 font-size:18px;
 }
+.form-card{
 
+width:100%;
+max-width:500px;
+
+background:#111;
+
+padding:25px;
+
+border-radius:20px;
+
+border:1px solid rgba(255,215,0,.3);
+
+box-shadow:
+0 0 20px rgba(255,215,0,.15);
+
+margin-top:30px;
+}
+
+.form-card input{
+
+width:100%;
+
+padding:15px;
+
+margin:10px 0;
+
+border:none;
+
+border-radius:12px;
+
+background:#1a1a1a;
+
+color:white;
+
+font-size:16px;
+}
+
+.form-card input:focus{
+
+outline:none;
+
+border:1px solid gold;
+
+box-shadow:0 0 10px gold;
+}
+.form-card select{
+
+width:100%;
+
+padding:15px;
+
+margin:10px 0;
+
+border:none;
+
+border-radius:12px;
+
+background:#1a1a1a;
+
+color:white;
+
+font-size:16px;
+}
+
+.form-card select:focus{
+
+outline:none;
+
+border:1px solid gold;
+
+box-shadow:0 0 10px gold;
+}
 </style>
 </head>
 
@@ -55,6 +127,32 @@ font-size:18px;
 <p>
 Fill your details below to apply for admission.
 </p>
+<div class="form-card">
 
+<input type="text" placeholder="Full Name">
+
+<input type="tel" placeholder="Mobile Number">
+
+<input type="email" placeholder="Email Address">
+
+<input type="number" placeholder="Age">
+<select>
+
+<option>Select Course</option>
+
+<option>Fitness</option>
+
+<option>Running</option>
+
+<option>Meditation</option>
+
+<option>Army PET</option>
+
+<option>Police PET</option>
+
+<option>Senior Citizen Batch</option>
+
+</select>
+</div>
 </body>
 </html>
