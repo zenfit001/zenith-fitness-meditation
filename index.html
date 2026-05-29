@@ -1,457 +1,374 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Zenith Fit Meditation</title>
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-scroll-behavior:smooth;
-font-family:Arial;
-}
-
-body{
-background:#000;
-color:white;
-overflow-x:hidden;
-}
-
-/* NAVBAR */
-
-nav{
-position:fixed;
-top:0;
-width:100%;
-padding:20px 50px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:rgba(0,0,0,0.7);
-backdrop-filter:blur(10px);
-z-index:1000;
-}
-
-.logo{
-font-size:35px;
-font-weight:bold;
-color:gold;
-letter-spacing:5px;
-}
-
-nav ul{
-display:flex;
-list-style:none;
-gap:30px;
-}
-
-nav ul li a{
-text-decoration:none;
-color:white;
-font-size:18px;
-transition:0.3s;
-}
-
-nav ul li a:hover{
-color:gold;
-}
-
-/* HERO SECTION */
-
-.hero{
-height:100vh;
-background:
-linear-gradient(rgba(0,0,0,0.7),
-rgba(0,0,0,0.7)),
-url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438');
-
-background-size:cover;
-background-position:center;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:20px;
-}
-
-.hero-content h1{
-font-size:90px;
-color:gold;
-letter-spacing:10px;
-animation:fade 2s ease;
-}
-
-.hero-content p{
-font-size:28px;
-margin-top:20px;
-}
-
-.hero-content button{
-margin-top:30px;
-padding:15px 40px;
-font-size:20px;
-border:none;
-border-radius:50px;
-background:gold;
-color:black;
-font-weight:bold;
-cursor:pointer;
-transition:0.3s;
-}
-
-.hero-content button:hover{
-transform:scale(1.1);
-}
-
-/* SECTIONS */
-
-section{
-padding:100px 20px;
-text-align:center;
-}
-
-section h2{
-font-size:50px;
-color:gold;
-margin-bottom:30px;
-}
-
-.about p{
-max-width:900px;
-margin:auto;
-font-size:22px;
-line-height:1.8;
-}
-
-/* TRAINING CARDS */
-
-.cards{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:30px;
-margin-top:50px;
-}
-
-.card{
-background:#111;
-padding:40px;
-width:300px;
-border-radius:20px;
-transition:0.4s;
-box-shadow:0 0 20px rgba(255,215,0,0.2);
-}
-
-.card:hover{
-transform:translateY(-10px);
-box-shadow:0 0 25px gold;
-}
-
-.card i{
-font-size:50px;
-color:gold;
-margin-bottom:20px;
-}
-
-.card h3{
-font-size:28px;
-margin-bottom:15px;
-}
-
-/* NOTICE */
-
-.notice{
-background:#111;
-}
-
-.notice-box{
-background:#1c1c1c;
-padding:30px;
-max-width:700px;
-margin:auto;
-border-radius:20px;
-font-size:28px;
-color:gold;
-animation:blink 2s infinite;
-}
-
-/* GALLERY */
-
-.gallery-container{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-padding:20px;
-}
-
-.gallery-container img{
-width:100%;
-height:250px;
-object-fit:cover;
-border-radius:20px;
-transition:0.4s;
-}
-
-.gallery-container img:hover{
-transform:scale(1.05);
-}
-
-/* SOCIAL */
-
-.social-icons{
-margin-top:40px;
-display:flex;
-justify-content:center;
-gap:30px;
-}
-
-.social-icons a{
-font-size:40px;
-color:white;
-transition:0.3s;
-}
-
-.social-icons a:hover{
-color:gold;
-transform:scale(1.2);
-}
-
-/* CONTACT */
-
-.contact p{
-font-size:24px;
-margin-top:20px;
-}
-
-/* FOOTER */
-
-footer{
-background:#111;
-padding:30px;
-font-size:18px;
-margin-top:50px;
-}
-
-/* ANIMATION */
-
-@keyframes fade{
-from{
-opacity:0;
-transform:translateY(50px);
-}
-
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-@keyframes blink{
-0%{
-opacity:1;
-}
-
-50%{
-opacity:0.6;
-}
-
-100%{
-opacity:1;
-}
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-.hero-content h1{
-font-size:55px;
-}
-
-.hero-content p{
-font-size:20px;
-}
-
-nav{
-padding:15px 20px;
-}
-
-nav ul{
-gap:15px;
-}
-
-section h2{
-font-size:38px;
-}
-
-}
-
-</style>
-</head>
-
-<body>
-
-<!-- NAVBAR -->
-
-<nav>
-
-<div class="logo">ZENITH</div>
-
-<ul>
-<li><a href="#about">About</a></li>
-<li><a href="#training">Training</a></li>
-<li><a href="#gallery">Gallery</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-
-</nav>
-
-<!-- HERO -->
-
-<section class="hero">
-
-<div class="hero-content">
-
-<h1>ZENITH</h1>
-
-<p>
-Fitness • Running • Meditation
-</p>
-
-<a href="https://instagram.com">
-<button>
-Join Now
-</button>
-</a>
-
-</div>
-
-</section>
-
-<!-- ABOUT -->
-
-<section class="about" id="about">
-
-<h2>About Us</h2>
-
-<p>
-Zenith Fit Meditation is a professional academy focused on fitness, running, meditation, discipline, Army and Police physical preparation. We help students, boys, girls and all age groups build confidence, strength and peace.
-</p>
-
-</section>
-
-<!-- TRAINING -->
-
-<section id="training">
-
-<h2>Our Training</h2>
-
-<div class="cards">
-
-<div class="card">
-<i class="fa-solid fa-person-running"></i>
-<h3>Running</h3>
-<p>Speed, stamina and endurance training.</p>
-</div>
-
-<div class="card">
-<i class="fa-solid fa-dumbbell"></i>
-<h3>Fitness</h3>
-<p>Strength and body conditioning sessions.</p>
-</div>
-
-<div class="card">
-<i class="fa-solid fa-shield"></i>
-<h3>Army / Police</h3>
-<p>Professional physical preparation.</p>
-</div>
-
-<div class="card">
-<i class="fa-solid fa-spa"></i>
-<h3>Meditation</h3>
-<p>Mind focus and peaceful breathing practice.</p>
-</div>
-
-</div>
-
-</section>
-
-<!-- NOTICE -->
-
-<section class="notice">
-
-<h2>New Batches</h2>
-
-<div class="notice-box">
-
-🔥 Morning Batch Starting Soon  
-⏰ Timing: 5:00 AM - 7:00 AM
-
-</div>
-
-</section>
-
-<!-- GALLERY -->
-
-<section id="gallery">
-
-<h2>Gallery</h2>
-
-<div class="gallery-container">
-
-<img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438">
-
-<img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773">
-
-<img src="https://images.unsplash.com/photo-1518611012118-696072aa579a">
-
-<img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd">
-
-</div>
-
-</section>
-
-<!-- CONTACT -->
-
-<section class="contact" id="contact">
-
-<h2>Contact Us</h2>
-
-<p>📍 Jharkhand, India</p>
-
-<p>📞 +91 XXXXX XXXXX</p>
-
-<div class="social-icons">
-
-<a href="https://www.instagram.com/zenithphysical01?igsh=MWs3NWhhbHlsZXEwdg%3D%3D&utm_source=qr">
-<i class="fa-brands fa-instagram"></i>
-</a>
-
-<a href="https://youtube.com/@zenithfitnessandmeditation?si=e40iCqC4Xjr2yGsx">
-<i class="fa-brands fa-youtube"></i>
-</a>
-
-<a href="https://wa.me/+919155997307">
-<i class="fa-brands fa-whatsapp"></i>
-</a>
-
-</div>
-
-</section>
-
-<footer>
-
-© 2026 Zenith Fit Meditation
-
-</footer>
-
-</body>
-</html>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zenith Fit Meditation</title>
+    <!-- Font Awesome Link for Icons -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            scroll-behavior:smooth;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        body{
+            background:#000;
+            color:white;
+            overflow-x:hidden;
+        }
+
+        /* NAVBAR */
+        nav{
+            position:fixed;
+            top:0;
+            width:100%;
+            padding:20px 50px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            background:rgba(0,0,0,0.85);
+            backdrop-filter:blur(10px);
+            z-index:1000;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .logo{
+            font-size:30px;
+            font-weight:bold;
+            color:gold;
+            letter-spacing:5px;
+        }
+
+        nav ul{
+            display:flex;
+            list-style:none;
+            gap:25px;
+        }
+
+        nav ul li a{
+            text-decoration:none;
+            color:white;
+            font-size:18px;
+            transition:0.3s;
+        }
+
+        nav ul li a:hover{
+            color:gold;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 28px;
+            color: gold;
+            cursor: pointer;
+        }
+
+        /* HERO SECTION */
+        .hero{
+            height:100vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://unsplash.com');
+            background-size:cover;
+            background-position:center;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+            padding:20px;
+        }
+
+        .hero-content h1{
+            font-size:90px;
+            color:gold;
+            letter-spacing:10px;
+            animation:fade 2s ease;
+        }
+
+        .hero-content p{
+            font-size:28px;
+            margin-top:20px;
+            color: #ddd;
+        }
+
+        .hero-btn{
+            display: inline-block;
+            margin-top:30px;
+            padding:15px 40px;
+            font-size:20px;
+            border:none;
+            border-radius:50px;
+            background:gold;
+            color:black;
+            font-weight:bold;
+            text-decoration: none;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        .hero-btn:hover{
+            transform:scale(1.1);
+            box-shadow: 0 0 15px gold;
+        }
+
+        /* SECTIONS GENERAL */
+        section{
+            padding:100px 20px;
+            text-align:center;
+        }
+
+        section h2{
+            font-size:45px;
+            color:gold;
+            margin-bottom:40px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .about p{
+            max-width:900px;
+            margin:auto;
+            font-size:22px;
+            line-height:1.8;
+            color: #ccc;
+        }
+
+        /* TRAINING CARDS */
+        .cards{
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:center;
+            gap:30px;
+            margin-top:20px;
+        }
+
+        .card{
+            background:#111;
+            padding:40px;
+            width:280px;
+            border-radius:20px;
+            transition:0.4s;
+            box-shadow:0 0 20px rgba(255,215,0,0.05);
+            border: 1px solid #222;
+        }
+
+        .card:hover{
+            transform:translateY(-10px);
+            box-shadow:0 0 25px gold;
+            border-color: gold;
+        }
+
+        .card i{
+            font-size:50px;
+            color:gold;
+            margin-bottom:20px;
+        }
+
+        .card h3{
+            font-size:26px;
+            margin-bottom:15px;
+        }
+
+        .card p {
+            color: #aaa;
+        }
+
+        /* PRICING / FEES SECTION */
+        .price-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .price-card {
+            background: #111;
+            border: 1px solid #222;
+            padding: 40px 30px;
+            width: 280px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        .price-card.premium {
+            border: 2px solid gold;
+            position: relative;
+        }
+
+        .price-card.premium .badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: gold;
+            color: black;
+            padding: 5px 15px;
+            font-weight: bold;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .price-card h3 { font-size: 26px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+        .price-card .cost { font-size: 36px; color: gold; font-weight: bold; margin-bottom: 20px; }
+        .price-card .cost span { font-size: 16px; color: #aaa; font-weight: normal; }
+        .price-card ul { list-style: none; margin-bottom: 30px; text-align: left; }
+        .price-card ul li { margin-bottom: 12px; color: #ccc; font-size: 15px; }
+        .price-card ul li i { color: gold; margin-right: 10px; }
+
+        /* ADMISSION FORM */
+        .form-section { background: #0a0a0a; }
+        .form-container {
+            max-width: 600px;
+            margin: auto;
+            background: #111;
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #222;
+            text-align: left;
+        }
+
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; color: gold; font-size: 18px; }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background: #222;
+            border: 1px solid #333;
+            color: white;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            border-color: gold;
+            outline: none;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: gold;
+            color: black;
+            font-weight: bold;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover { background: #e6c200; transform: scale(1.02); }
+
+        /* REVIEWS / TESTIMONIALS */
+        .review-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .review-card {
+            background: #111;
+            padding: 30px;
+            width: 320px;
+            border-radius: 20px;
+            border-left: 5px solid gold;
+            text-align: left;
+        }
+
+        .review-card p { font-style: italic; color: #ddd; line-height: 1.6; }
+        .review-card h4 { margin-top: 15px; color: gold; font-size: 18px; }
+
+        /* NOTICE */
+        .notice{ background:#111; }
+        .notice-box{
+            background:#1c1c1c;
+            padding:30px;
+            max-width:700px;
+            margin:auto;
+            border-radius:20px;
+            font-size:24px;
+            color:gold;
+            border: 1px dashed gold;
+            animation:blink 2s infinite;
+        }
+
+        /* GALLERY */
+        .gallery-container{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+            gap:20px;
+            padding:20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .gallery-container img{
+            width:100%;
+            height:250px;
+            object-fit:cover;
+            border-radius:20px;
+            transition:0.4s;
+        }
+
+        .gallery-container img:hover{ transform:scale(1.05); }
+
+        /* CONTACT & SOCIAL */
+        .contact p{ font-size:22px; margin-top:15px; }
+        .social-icons{
+            margin-top:40px;
+            display:flex;
+            justify-content:center;
+            gap:30px;
+        }
+
+        .social-icons a{ font-size:40px; color:white; transition:0.3s; }
+        .social-icons a:hover{ color:gold; transform:scale(1.2); }
+
+        /* FLOATING WHATSAPP BUTTON */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 35px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+            z-index: 100;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .whatsapp-float:hover { transform: scale(1.1); background-color: #20ba5a; }
+
+        footer{
+            background:#111;
+            padding:30px;
+            font-size:18px;
+            margin-top:50px;
+            border-top: 1px solid #222;
+        }
+
+        /* ANIMATIONS */
+        @keyframes fade{
+            from{ opacity:0; transform:translateY(50px); }
+            to{ opacity:1; transform:translateY(0); }
+        }
+
+        @keyframes blink{
+            0%, 100%{ opacity:1; }
+            50%{ opacity:0.7; }
+        }
+
+        /* MOBILE RESPONSIVE */
+        @media(max-width:768px){
+            .menu-toggle { display: block; }
