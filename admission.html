@@ -117,6 +117,59 @@ border:1px solid gold;
 
 box-shadow:0 0 10px gold;
 }
+.submit-btn{
+
+width:100%;
+
+padding:15px;
+
+margin-top:15px;
+
+background:#FFD700;
+
+color:black;
+
+border:none;
+
+border-radius:12px;
+
+font-size:18px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+transition:.3s;
+}
+
+.submit-btn:hover{
+
+transform:scale(1.03);
+
+box-shadow:
+0 0 20px gold,
+0 0 40px rgba(255,215,0,.5);
+}
+.mentor-note{
+
+margin-top:15px;
+
+padding:15px;
+
+text-align:center;
+
+font-size:14px;
+
+line-height:1.7;
+
+color:#ccc;
+
+background:rgba(255,215,0,.08);
+
+border:1px solid rgba(255,215,0,.2);
+
+border-radius:12px;
+}
 </style>
 </head>
 
@@ -127,15 +180,18 @@ box-shadow:0 0 10px gold;
 <p>
 Fill your details below to apply for admission.
 </p>
+<form name="admission" method="POST" data-netlify="true">
+
 <div class="form-card">
 
-<input type="text" placeholder="Full Name">
+<input type="text" name="fullname" placeholder="Full Name">
+<input type="text" name="fathername" placeholder="Father's Name">
 
-<input type="tel" placeholder="Mobile Number">
-
+<input type="tel" name="mobile" placeholder="Mobile Number">
 <input type="email" placeholder="Email Address">
 
 <input type="number" placeholder="Age">
+<input type="text" placeholder="Address">
 <select>
 
 <option>Select Course</option>
@@ -153,6 +209,26 @@ Fill your details below to apply for admission.
 <option>Senior Citizen Batch</option>
 
 </select>
+<select>
+
+<option>Select Batch</option>
+
+<option>Morning Batch</option>
+
+<option>Evening Batch</option>
+
+</select>
+<button class="submit-btn">
+Submit Application
+</button>
+<p class="mentor-note">
+
+📞 Your Mentor will call you at a convenient time to discuss training, batch timing and admission details.
+
+No payment is required at this stage.
+
+</p>
 </div>
+</form>
 </body>
 </html>
