@@ -181,18 +181,18 @@ border-radius:12px;
 Fill your details below to apply for admission.
 </p>
 <form name="admission" method="POST" data-netlify="true">
-
+<input type="hidden" name="form-name" value="admission">
 <div class="form-card">
 
 <input type="text" name="fullname" placeholder="Full Name">
 <input type="text" name="fathername" placeholder="Father's Name">
 
 <input type="tel" name="mobile" placeholder="Mobile Number">
-<input type="email" placeholder="Email Address">
+<input type="email" name="email" placeholder="Email Address">
 
-<input type="number" placeholder="Age">
-<input type="text" placeholder="Address">
-<select>
+<input type="number" name="age" placeholder="Age">
+<input type="text" name="address" placeholder="Address">
+<select name="course">
 
 <option>Select Course</option>
 
@@ -209,7 +209,7 @@ Fill your details below to apply for admission.
 <option>Senior Citizen Batch</option>
 
 </select>
-<select>
+<select name="batch">
 
 <option>Select Batch</option>
 
@@ -218,8 +218,9 @@ Fill your details below to apply for admission.
 <option>Evening Batch</option>
 
 </select>
-<button class="submit-btn">
+<button type="submit" class="submit-btn">
 Submit Application
+</button>
 </button>
 <p class="mentor-note">
 
