@@ -586,6 +586,32 @@ title="YouTube Video">
 Rise Beyond Limits
 
 </footer>
+<script>
 
+document.getElementById("joinForm").addEventListener("submit", function(e){
+
+e.preventDefault();
+
+let name = document.getElementById("name").value;
+let phone = document.getElementById("phone").value;
+let email = document.getElementById("email").value;
+
+let message =
+`🔥 NEW ZENITH ADMISSION 🔥
+
+Name: ${name}
+
+Phone: ${phone}
+
+Email: ${email}`;
+
+window.open(
+`https://wa.me/916201808179?text=${encodeURIComponent(message)}`,
+'_blank'
+);
+
+});
+
+</script>
 </body>
 </html>
