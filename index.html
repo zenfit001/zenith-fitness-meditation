@@ -384,6 +384,84 @@ nav ul{
 display:none;
 }
 }
+.premium-notice{
+margin:25px auto;
+width:92%;
+max-width:1200px;
+
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:20px;
+
+padding:20px;
+
+background:rgba(255,255,255,.05);
+
+backdrop-filter:blur(12px);
+
+border:1px solid rgba(255,215,0,.3);
+
+border-radius:20px;
+
+box-shadow:
+0 0 20px rgba(255,215,0,.15);
+
+animation:noticePulse 3s infinite;
+}
+
+.notice-icon{
+font-size:40px;
+}
+
+.notice-content h3{
+color:#FFD700;
+margin-bottom:5px;
+font-size:24px;
+}
+
+.notice-content p{
+color:#ddd;
+font-size:15px;
+}
+
+.notice-btn{
+background:#FFD700;
+color:black;
+padding:12px 25px;
+border-radius:30px;
+text-decoration:none;
+font-weight:bold;
+transition:.3s;
+}
+
+.notice-btn:hover{
+transform:scale(1.08);
+box-shadow:0 0 20px gold;
+}
+
+@keyframes noticePulse{
+0%{
+box-shadow:0 0 10px rgba(255,215,0,.1);
+}
+50%{
+box-shadow:0 0 25px rgba(255,215,0,.4);
+}
+100%{
+box-shadow:0 0 10px rgba(255,215,0,.1);
+}
+}
+
+@media(max-width:768px){
+.premium-notice{
+flex-direction:column;
+text-align:center;
+}
+
+.notice-content h3{
+font-size:20px;
+}
+}
 </style>
 </head>
 <body>
@@ -424,7 +502,25 @@ Join Now
 </div>
 
 </section>
+<section class="premium-notice">
 
+<div class="notice-icon">📢</div>
+
+<div class="notice-content">
+
+<h3>Admissions Open 2026</h3>
+
+<p>
+Fitness • Running • Meditation • Army PET • Police PET Training
+</p>
+
+</div>
+
+<a href="#admission" class="notice-btn">
+Apply Now
+</a>
+
+</section>
 <section id="about">
 
 <h2 class="section-title">About Zenith</h2>
