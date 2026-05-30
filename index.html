@@ -57,6 +57,32 @@ color:var(--gold);
 text-shadow:0 0 10px gold;
 animation:logoGlow 2s infinite alternate;
 }
+.logo span{
+display:inline-block;
+animation:zenithFloat 3s ease-in-out infinite;
+}
+
+@keyframes zenithFloat{
+
+0%{
+transform:translateY(0px);
+text-shadow:0 0 10px gold;
+}
+
+50%{
+transform:translateY(-3px);
+text-shadow:
+0 0 20px gold,
+0 0 40px gold,
+0 0 60px gold;
+}
+
+100%{
+transform:translateY(0px);
+text-shadow:0 0 10px gold;
+}
+
+}
 .nav-logo{
 width:45px;
 height:45px;
@@ -600,7 +626,7 @@ font-size:20px;
 
 <nav>
 <div class="logo">
-<span>ZENITH</span>
+<span>⚡ ZENITH ⚡</span>
 </div>
 <div class="menu-btn">
 <i class="fas fa-bars"></i>
