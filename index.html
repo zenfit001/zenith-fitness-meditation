@@ -384,6 +384,53 @@ user-select:none;
 -webkit-user-drag:none;
 pointer-events:none;
   }
+.social-links{
+display:flex;
+justify-content:center;
+gap:25px;
+flex-wrap:wrap;
+margin-top:25px;
+}
+
+.social-btn{
+padding:15px 35px;
+border-radius:50px;
+text-decoration:none;
+font-weight:bold;
+font-size:18px;
+color:white;
+transition:.4s;
+letter-spacing:1px;
+}
+
+.youtube{
+background:#ff0000;
+
+box-shadow:
+0 0 15px rgba(255,0,0,.5),
+0 0 30px rgba(255,0,0,.3);
+}
+
+.instagram{
+background:linear-gradient(
+45deg,
+#833AB4,
+#FD1D1D,
+#FCAF45
+);
+
+box-shadow:
+0 0 15px rgba(253,29,29,.5),
+0 0 30px rgba(253,29,29,.3);
+}
+
+.social-btn:hover{
+transform:translateY(-5px) scale(1.05);
+
+box-shadow:
+0 0 20px gold,
+0 0 40px rgba(255,215,0,.5);
+}
 /* CONTACT */
 
 .contact{
@@ -841,7 +888,33 @@ title="YouTube Video">
 </div>
 
 </section>
+<section id="social">
 
+<h2 class="section-title">Follow Zenith</h2>
+
+<div class="social-links">
+
+<a href="https://youtube.com/@YOURCHANNEL"
+target="_blank"
+class="social-btn youtube">
+
+<i class="fab fa-youtube"></i>
+YouTube
+
+</a>
+
+<a href="https://instagram.com/YOURUSERNAME"
+target="_blank"
+class="social-btn instagram">
+
+<i class="fab fa-instagram"></i>
+Instagram
+
+</a>
+
+</div>
+
+</section>
 <footer>
 
 © 2026 ZENITH Fitness & Meditation Academy
