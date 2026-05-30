@@ -344,15 +344,23 @@ max-width:1200px;
 margin:auto;
 }
 
-.gallery div{
+.gallery-item{
 height:250px;
-background:#111;
+overflow:hidden;
 border-radius:20px;
-display:flex;
-align-items:center;
-justify-content:center;
-color:#777;
-border:1px dashed gold;
+border:2px solid gold;
+box-shadow:0 0 15px rgba(255,215,0,.3);
+}
+
+.gallery-item img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:.4s;
+}
+
+.gallery-item:hover img{
+transform:scale(1.1);
 }
 .trainer-photo{
 width:100%;
@@ -446,10 +454,13 @@ margin-right:8px;
 /* FOOTER */
 
 footer{
-padding:25px;
+padding:35px;
 text-align:center;
 background:#111;
-border-top:1px solid #222;
+border-top:1px solid gold;
+color:white;
+line-height:1.8;
+box-shadow:0 -5px 20px rgba(255,215,0,.2);
 }
 
 /* WHATSAPP */
@@ -482,8 +493,23 @@ font-size:45px;
 font-size:18px;
 }
 
+.menu-btn{
+display:block;
+}
+
 nav ul{
 display:none;
+flex-direction:column;
+position:absolute;
+top:70px;
+left:0;
+width:100%;
+background:#111;
+padding:20px;
+}
+
+nav ul.active{
+display:flex;
 }
 }
 .premium-notice{
@@ -577,7 +603,9 @@ font-size:20px;
 <img src="file_00000000b6a47208a4e145f31f11f464.png" class="nav-logo">
 <span>ZENITH</span>
 </div>
-
+<div class="menu-btn">
+<i class="fas fa-bars"></i>
+</div>
 <ul>
 <li><a href="#about">About</a></li>
 <li><a href="#training">Training</a></li>
@@ -593,11 +621,19 @@ font-size:20px;
 <div>
 <img src="file_00000000b6a47208a4e145f31f11f464.png" class="hero-logo">
 <h1>ZENITH</h1>
-
+<h2 style="
+color:#FFD700;
+font-size:28px;
+margin:15px 0;
+text-shadow:0 0 15px gold;
+letter-spacing:3px;
+">
+DISCIPLINE CREATES CHAMPIONS
+</h2>
 <p>
 Fitness • Running • Meditation
 <br>
-Army PET • Police PET Training
+Army PET • Police PET • Athletics
 </p>
 
 <a href="https://forms.gle/Me8XrvuFgXaRwWPNA" target="_blank" class="btn">
@@ -939,17 +975,60 @@ title="YouTube Video">
 </div>
 
 </section>
+<section id="why">
 
+<h2 class="section-title">Why Choose Zenith?</h2>
+
+<div class="cards">
+
+<div class="card">
+<i class="fas fa-user-tie"></i>
+<h3>Professional Coaches</h3>
+<p>Guidance from dedicated fitness and performance trainers.</p>
+</div>
+
+<div class="card">
+<i class="fas fa-medal"></i>
+<h3>Army & Police PET</h3>
+<p>Specialized preparation for physical fitness tests.</p>
+</div>
+
+<div class="card">
+<i class="fas fa-person-running"></i>
+<h3>Athletics Training</h3>
+<p>Running, endurance and race preparation programs.</p>
+</div>
+
+<div class="card">
+<i class="fas fa-brain"></i>
+<h3>Mental Strength</h3>
+<p>Meditation and focus-building sessions for better performance.</p>
+</div>
+
+</div>
+
+</section>
 <section id="gallery">
 
 <h2 class="section-title">Gallery</h2>
 
 <div class="gallery">
 
-<div>Image Slot 1</div>
-<div>Image Slot 2</div>
-<div>Image Slot 3</div>
-<div>Image Slot 4</div>
+<div class="gallery-item">
+<img src="IMG_20260530_111849.png">
+</div>
+
+<div class="gallery-item">
+<img src="IMG_20260530_121943.png">
+</div>
+
+<div class="gallery-item">
+<img src="IMG_20260530_165247.png">
+</div>
+
+<div class="gallery-item">
+<img src="file_00000000b6a47208a4e145f31f11f464.png">
+</div>
 
 </div>
 
@@ -1004,8 +1083,14 @@ Instagram
 <footer>
 
 © 2026 ZENITH Fitness & Meditation Academy
-<br>
-Rise Beyond Limits
+
+<br><br>
+
+DISCIPLINE CREATES CHAMPIONS
+
+<br><br>
+
+Fitness • Running • Meditation • Army PET • Police PET • Athletics
 
 </footer>
 <script>
@@ -1040,6 +1125,11 @@ window.open(
 <script>
 document.addEventListener('contextmenu', function(e){
 e.preventDefault();
+});
+document.querySelector(".menu-btn").addEventListener("click", function(){
+
+document.querySelector("nav ul").classList.toggle("active");
+
 });
 </script>
 </body>
