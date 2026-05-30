@@ -45,6 +45,9 @@ z-index:1000;
 }
 
 .logo{
+display:flex;
+align-items:center;
+gap:10px;
 font-size:28px;
 font-weight:bold;
 letter-spacing:4px;
@@ -52,6 +55,13 @@ color:var(--gold);
 
 text-shadow:0 0 10px gold;
 animation:logoGlow 2s infinite alternate;
+}
+.nav-logo{
+width:45px;
+height:45px;
+border-radius:50%;
+filter:drop-shadow(0 0 10px gold);
+margin-right:8px;
 }
 @keyframes logoGlow{
 from{
@@ -486,7 +496,10 @@ font-size:20px;
 </a>
 
 <nav>
-<div class="logo">ZENITH</div>
+<div class="logo">
+<img src="file_00000000b6a47208a4e145f31f11f464.png" class="nav-logo">
+<span>ZENITH</span>
+</div>
 
 <ul>
 <li><a href="#about">About</a></li>
