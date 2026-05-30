@@ -98,7 +98,22 @@ align-items:center;
 text-align:center;
 padding:20px;
 }
+.hero-logo{
+width:140px;
+height:auto;
+margin-bottom:20px;
+filter:drop-shadow(0 0 25px gold);
+animation:floatLogo 3s ease-in-out infinite;
+}
 
+@keyframes floatLogo{
+0%,100%{
+transform:translateY(0);
+}
+50%{
+transform:translateY(-10px);
+}
+}
 .hero h1{
 font-size:80px;
 font-weight:900;
@@ -486,7 +501,7 @@ font-size:20px;
 <section class="hero">
 
 <div>
-
+<img src="file_00000000b6a47208a4e145f31f11f464.png" class="hero-logo">
 <h1>ZENITH</h1>
 
 <p>
