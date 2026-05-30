@@ -58,8 +58,61 @@ text-shadow:0 0 10px gold;
 animation:logoGlow 2s infinite alternate;
 }
 .logo span{
+position:relative;
 display:inline-block;
-animation:zenithFloat 3s ease-in-out infinite;
+color:#FFD700;
+animation:neonPulse 2.5s infinite;
+overflow:hidden;
+}
+.logo span::after{
+content:'';
+position:absolute;
+top:0;
+left:-100%;
+width:50%;
+height:100%;
+background:linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,.8),
+transparent
+);
+transform:skewX(-25deg);
+animation:shine 3s infinite;
+}
+
+@keyframes neonPulse{
+
+0%{
+text-shadow:
+0 0 5px gold,
+0 0 10px gold;
+}
+
+50%{
+text-shadow:
+0 0 10px gold,
+0 0 20px gold,
+0 0 40px gold,
+0 0 80px gold;
+}
+
+100%{
+text-shadow:
+0 0 5px gold,
+0 0 10px gold;
+}
+}
+
+@keyframes shine{
+
+0%{
+left:-100%;
+}
+
+100%{
+left:200%;
+}
 }
 
 @keyframes zenithFloat{
@@ -626,7 +679,7 @@ font-size:20px;
 
 <nav>
 <div class="logo">
-<span>⚡ ZENITH ⚡</span>
+<span>Z E N I T H</span>
 </div>
 <div class="menu-btn">
 <i class="fas fa-bars"></i>
