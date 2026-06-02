@@ -73,8 +73,6 @@ margin-top:20px;
 <div id="result"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-<script>
-alert("SCRIPT STARTED");
 
 const SUPABASE_URL = "https://agwbczkxafdywztqmvib.supabase.co";
 const SUPABASE_KEY = "sb_publishable_kPeuvi1LHE8pfJRtkh7ydw_DQLfFNuy";
@@ -86,16 +84,38 @@ const supabaseClient = supabase.createClient(
 
 async function login() {
 
-  alert("BUTTON CLICKED");
-alert(typeof supabase);
+const studentId =
+document.getElementById("studentId").value;
 
-alert(typeof supabaseClient);
+const password =
+document.getElementById("password").value;
 
-  const { data, error } = await supabaseClient
-    .from("students")
-    .select("*");
+const { data, error } = await supabase
+.from("students")
+.select("*")
+.eq("student_id", studentId)
+.eq("password", password);
 
-  alert(JSON.stringify({ data, error }));
+if (error || !data || data.length === 0) {
+
+document.getElementById("result").innerHTML = `
+<h3 style="color:red">Invalid ID or Password</h3>
+`;
+
+return;
+}
+
+const student = data[0];
+
+document.getElementById("result").innerHTML = `
+<h3 style="color:gold">Welcome ${student.name}</h3>
+
+<p>Plan : ${student.plan}</p>
+<p>Paid Fee : ₹${student.paid_fee}</p>
+<p>Pending Fee : ₹${student.pending_fee}</p>
+<p>Attendance : ${student.attendance}</p>
+`;
+
 }
 </script>
 
