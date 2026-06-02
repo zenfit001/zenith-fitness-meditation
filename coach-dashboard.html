@@ -80,7 +80,9 @@ html += `
 <p>ID: ${student.student_id}</p>
 
 <p>Attendance: ${student.attendance}</p>
-
+<button onclick="markPresent('${student.student_id}')">
+Mark Present
+</button>
 <button onclick="markPresent('${student.student_id}')">
 Mark Present
 </button>
