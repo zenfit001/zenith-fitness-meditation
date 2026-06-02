@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Coach Dashboard</title>
+
+<style>
+body{
+background:black;
+color:white;
+font-family:Arial;
+padding:20px;
+}
+
+h1{
+color:gold;
+text-align:center;
+}
+
+.student{
+border:1px solid gold;
+padding:15px;
+margin:15px 0;
+border-radius:10px;
+}
+
+button{
+background:gold;
+color:black;
+border:none;
+padding:10px;
+margin:5px;
+border-radius:5px;
+font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Coach Dashboard</h1>
+
+<div id="students"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+<script>
+
+const SUPABASE_URL = "PASTE_YOUR_URL";
+const SUPABASE_KEY = "PASTE_YOUR_ANON_KEY";
+
+const supabaseClient = supabase.createClient(
+SUPABASE_URL,
+SUPABASE_KEY
+);
+
+loadStudents();
+
+async function loadStudents(){
+
+const { data, error } = await supabaseClient
+.from("students")
+.select("*");
+
+let html = "";
+
+data.forEach(student => {
+
+html += `
+<div class="student">
+
+<h3>${student.name}</h3>
+
+<p>ID: ${student.student_id}</p>
+
+<p>Attendance: ${student.attendance}</p>
+
+<p>Pending Fee: ₹${student.pending_fee}</p>
+
+</div>
+`;
+});
+
+document.getElementById("students").innerHTML = html;
+
+}
+
+</script>
+
+</body>
+</html>
