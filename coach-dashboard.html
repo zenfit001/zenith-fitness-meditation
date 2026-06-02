@@ -81,6 +81,10 @@ html += `
 
 <p>Attendance: ${student.attendance}</p>
 
+<button onclick="markPresent('${student.student_id}')">
+Mark Present
+</button>
+
 <p>Pending Fee: ₹${student.pending_fee}</p>
 
 </div>
@@ -90,7 +94,20 @@ html += `
 document.getElementById("students").innerHTML = html;
 
 }
+async function markPresent(studentId){
 
+await supabaseClient
+.from("attendance")
+.insert([
+{
+student_id: studentId,
+status: "Present"
+}
+]);
+
+alert("Attendance Saved");
+
+}
 </script>
 
 </body>
