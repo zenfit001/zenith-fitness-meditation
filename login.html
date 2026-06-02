@@ -102,6 +102,9 @@ const { data, error } = await supabase
 .single();
 
 alert(JSON.stringify({data,error}));
+
+console.log(data);
+console.log(error);
   
 if(error || !data){
 
