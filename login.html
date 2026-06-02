@@ -72,10 +72,28 @@ margin-top:20px;
 <button onclick="login()">Login</button>
 <div id="result"></div>
 <script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
 alert("SCRIPT STARTED");
 
-function login() {
-    alert("BUTTON CLICKED");
+const SUPABASE_URL = "https://agwbczkxafdywztqmvib.supabase.co";
+const SUPABASE_KEY = "sb_publishable_kPeuvi1LHE8pfJRtkh7ydw_DQLfFNuy";
+
+const supabaseClient = supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
+
+async function login() {
+
+  alert("BUTTON CLICKED");
+
+  const { data, error } = await supabaseClient
+    .from("students")
+    .select("*");
+
+  alert(JSON.stringify({ data, error }));
 }
 </script>
 
