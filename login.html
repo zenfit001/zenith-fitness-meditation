@@ -72,7 +72,61 @@ margin-top:20px;
 <button onclick="login()">Login</button>
 
 <div id="result"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 
+<script>
+
+const SUPABASE_URL = "https://agwbczkxafdywztqmvib.supabase.co";
+const SUPABASE_KEY = "sb_publishable_kPeuvi1LHE8pfJRtkh7ydw_DQLfFNuy";
+
+const supabase = window.supabase.createClient(
+SUPABASE_URL,
+SUPABASE_KEY
+);
+
+async function login(){
+
+const studentId =
+document.getElementById("studentId").value;
+
+const password =
+document.getElementById("password").value;
+
+const { data, error } = await supabase
+.from("students")
+.select("*")
+.eq("student_id", studentId)
+.eq("password", password)
+.single();
+
+if(error || !data){
+
+document.getElementById("result").innerHTML = `
+<h3 style="color:red">
+Invalid ID or Password
+</h3>
+`;
+
+return;
+}
+
+document.getElementById("result").innerHTML = `
+<h3 style="color:gold">
+Welcome ${data.name}
+</h3>
+
+<p>Plan : ${data.plan}</p>
+
+<p>Paid Fee : ₹${data.paid_fee}</p>
+
+<p>Pending Fee : ₹${data.pending_fee}</p>
+
+<p>Attendance : ${data.attendance}</p>
+`;
+
+}
+
+</script>
 </div>
 
 </body>
