@@ -87,6 +87,9 @@ const supabaseClient = supabase.createClient(
 async function login() {
 
   alert("BUTTON CLICKED");
+alert(typeof supabase);
+
+alert(typeof supabaseClient);
 
   const { data, error } = await supabaseClient
     .from("students")
