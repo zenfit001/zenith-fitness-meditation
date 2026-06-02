@@ -69,7 +69,7 @@ margin-top:20px;
 
 <input type="password" id="password" placeholder="Password">
 
-<button onclick="alert('Button Working')">Login</button>
+<button onclick="login()">Login</button>
 
 <div id="result"></div>
 <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
@@ -86,7 +86,7 @@ SUPABASE_KEY
 
 async function login(){
 
-alert("Button Clicked");
+alert("Login Function Started");
 
 const studentId =
 document.getElementById("studentId").value;
