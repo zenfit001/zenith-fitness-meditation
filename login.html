@@ -40,6 +40,7 @@ margin:10px 0;
 border:none;
 border-radius:10px;
 font-size:16px;
+box-sizing:border-box;
 }
 
 button{
@@ -63,26 +64,35 @@ margin-top:20px;
 
 <div class="login-box">
 
-<h1>TEST 999</h1>
+<h1>ZENITH LOGIN</h1>
 
 <input type="text" id="studentId" placeholder="Student ID">
 
 <input type="password" id="password" placeholder="Password">
 
 <button onclick="login()">Login</button>
+
 <div id="result"></div>
+
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script>
 
-const SUPABASE_URL = "https://agwbczkxafdywztqmvib.supabase.co";
-const SUPABASE_KEY = "sb_publishable_kPeuvi1LHE8pfJRtkh7ydw_DQLfFNuy";
+const SUPABASE_URL =
+"https://agwbczkxafdywztqmvib.supabase.co";
 
-const supabaseClient = supabase.createClient(
-  SUPABASE_URL,
-  SUPABASE_KEY
+const SUPABASE_KEY =
+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFnd2Jjemt4YWZkeXd6dHFtdmliIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAyMjU5NzQsImV4cCI6MjA5NTgwMTk3NH0.VAKG7LJQOtxrGjG5habyv-P0UWsOqmGK7Vd9gx5mdQo";
+
+const supabaseClient =
+supabase.createClient(
+SUPABASE_URL,
+SUPABASE_KEY
 );
 
-async function login() {
+async function login(){
 
 const studentId =
 document.getElementById("studentId").value;
@@ -90,18 +100,21 @@ document.getElementById("studentId").value;
 const password =
 document.getElementById("password").value;
 
-const { data, error } = await supabase
+const { data, error } = await supabaseClient
 .from("students")
 .select("*")
 .eq("student_id", studentId)
 .eq("password", password);
 
-if (error || !data || data.length === 0) {
+if(error){
+document.getElementById("result").innerHTML =
+"<h3 style='color:red'>Database Error</h3>";
+return;
+}
 
-document.getElementById("result").innerHTML = `
-<h3 style="color:red">Invalid ID or Password</h3>
-`;
-
+if(!data || data.length === 0){
+document.getElementById("result").innerHTML =
+"<h3 style='color:red'>Invalid ID or Password</h3>";
 return;
 }
 
@@ -110,16 +123,20 @@ const student = data[0];
 document.getElementById("result").innerHTML = `
 <h3 style="color:gold">Welcome ${student.name}</h3>
 
-<p>Plan : ${student.plan}</p>
-<p>Paid Fee : ₹${student.paid_fee}</p>
-<p>Pending Fee : ₹${student.pending_fee}</p>
-<p>Attendance : ${student.attendance}</p>
+<p><b>Plan:</b> ${student.plan}</p>
+
+<p><b>Paid Fee:</b> ₹${student.paid_fee}</p>
+
+<p><b>Pending Fee:</b> ₹${student.pending_fee}</p>
+
+<p><b>Attendance:</b> ${student.attendance}</p>
+
+<p><b>Phone:</b> ${student.phone}</p>
 `;
 
 }
-</script>
 
-</div>
+</script>
 
 </body>
 </html>
