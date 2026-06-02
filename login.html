@@ -71,68 +71,13 @@ margin-top:20px;
 
 <button onclick="login()">Login</button>
 <div id="result"></div>
-<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
-
 <script>
-alert("PAGE LOADED");
-alert("Login script loaded");
-alert(typeof window.supabase);
-const SUPABASE_URL = "https://agwbczkxafdywztqmvib.supabase.co";
-const SUPABASE_KEY = "sb_publishable_kPeuvi1LHE8pfJRtkh7ydw_DQLfFNuy";
+alert("SCRIPT STARTED");
 
-const supabase = window.supabase.createClient(
-SUPABASE_URL,
-SUPABASE_KEY
-);
-
-async function login(){
-
-alert("Login Started");
-
-const studentId =
-document.getElementById("studentId").value;
-
-const password =
-document.getElementById("password").value;
-
-const { data, error } = await supabase
-.from("students")
-.select("*")
-.eq("student_id", studentId)
-.eq("password", password)
-.single();
-
-alert(JSON.stringify({data,error}));
-
-console.log(data);
-console.log(error);
-  
-if(error || !data){
-
-document.getElementById("result").innerHTML = `
-<h3 style="color:red">
-Invalid ID or Password
-</h3>
-`;
-
-return;
+function login() {
+    alert("BUTTON CLICKED");
 }
-
-document.getElementById("result").innerHTML = `
-<h3 style="color:gold">
-Welcome ${data.name}
-</h3>
-
-<p>Plan : ${data.plan}</p>
-
-<p>Paid Fee : ₹${data.paid_fee}</p>
-
-<p>Pending Fee : ₹${data.pending_fee}</p>
-
-<p>Attendance : ${data.attendance}</p>
-`;
-
-}
+</script>
 
 </script>
 </div>
