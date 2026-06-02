@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Zenith Student Login</title>
+
+<style>
+body{
+background:#000;
+color:white;
+font-family:Arial,sans-serif;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+margin:0;
+}
+
+.login-box{
+width:90%;
+max-width:400px;
+background:#111;
+padding:30px;
+border-radius:20px;
+border:2px solid gold;
+box-shadow:0 0 20px gold;
+text-align:center;
+}
+
+h1{
+color:gold;
+}
+
+input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:none;
+border-radius:10px;
+font-size:16px;
+}
+
+button{
+width:100%;
+padding:12px;
+background:gold;
+color:black;
+font-weight:bold;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+#result{
+margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-box">
+
+<h1>ZENITH LOGIN</h1>
+
+<input type="text" id="studentId" placeholder="Student ID">
+
+<input type="password" id="password" placeholder="Password">
+
+<button onclick="login()">Login</button>
+
+<div id="result"></div>
+
+</div>
+
+</body>
+</html>
