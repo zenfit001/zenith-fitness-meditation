@@ -22,6 +22,7 @@ border-radius:20px;
 border:2px solid gold;
 width:350px;
 text-align:center;
+color:white;
 }
 
 h1{
@@ -34,6 +35,7 @@ padding:12px;
 margin:10px 0;
 border-radius:10px;
 border:none;
+box-sizing:border-box;
 }
 
 button{
@@ -44,6 +46,10 @@ border:none;
 border-radius:10px;
 font-weight:bold;
 }
+
+#result{
+margin-top:20px;
+}
 </style>
 </head>
 
@@ -53,13 +59,62 @@ font-weight:bold;
 
 <h1>COACH LOGIN</h1>
 
-<input type="text" placeholder="Coach ID">
+<input type="text" id="coachId" placeholder="Coach ID">
 
-<input type="password" placeholder="Password">
+<input type="password" id="password" placeholder="Password">
 
-<button>Login</button>
+<button onclick="login()">Login</button>
+
+<div id="result"></div>
 
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+
+const SUPABASE_URL = "https://agwbczkxafdywztqmvib.supabase.co";
+
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFnd2Jjemt4YWZkeXd6dHFtdmliIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAyMjU5NzQsImV4cCI6MjA5NTgwMTk3NH0.VAKG7LJQOtxrGjG5habyv-P0UWsOqmGK7Vd9gx5mdQo";
+
+const supabaseClient =
+supabase.createClient(
+SUPABASE_URL,
+SUPABASE_KEY
+);
+
+async function login(){
+
+const coachId =
+document.getElementById("coachId").value;
+
+const password =
+document.getElementById("password").value;
+
+const { data, error } = await supabaseClient
+.from("coaches")
+.select("*")
+.eq("coach_id", coachId)
+.eq("password", password);
+
+if(error || !data || data.length === 0){
+
+document.getElementById("result").innerHTML =
+"<h3 style='color:red'>Invalid Login</h3>";
+
+return;
+}
+
+const coach = data[0];
+
+document.getElementById("result").innerHTML = `
+<h2 style="color:gold">Welcome ${coach.name}</h2>
+<p>Role: ${coach.role}</p>
+`;
+
+}
+
+</script>
 
 </body>
 </html>
