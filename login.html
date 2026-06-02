@@ -57,6 +57,27 @@ cursor:pointer;
 #result{
 margin-top:20px;
 }
+.dashboard{
+margin-top:20px;
+}
+
+.card{
+background:#1a1a1a;
+border:1px solid gold;
+border-radius:15px;
+padding:15px;
+margin-top:10px;
+box-shadow:0 0 10px gold;
+}
+
+.card h3{
+color:gold;
+margin:0 0 10px 0;
+}
+
+.card p{
+margin:5px 0;
+}
 </style>
 </head>
 
@@ -121,17 +142,34 @@ return;
 const student = data[0];
 
 document.getElementById("result").innerHTML = `
-<h3 style="color:gold">Welcome ${student.name}</h3>
 
-<p><b>Plan:</b> ${student.plan}</p>
+<div class="dashboard">
 
-<p><b>Paid Fee:</b> ₹${student.paid_fee}</p>
+<h2>👋 ${student.name}</h2>
 
-<p><b>Pending Fee:</b> ₹${student.pending_fee}</p>
+<div class="card">
+<h3>Membership Plan</h3>
+<p>${student.plan}</p>
+</div>
 
-<p><b>Attendance:</b> ${student.attendance}</p>
+<div class="card">
+<h3>Fee Status</h3>
+<p>Paid : ₹${student.paid_fee}</p>
+<p>Pending : ₹${student.pending_fee}</p>
+</div>
 
-<p><b>Phone:</b> ${student.phone}</p>
+<div class="card">
+<h3>Attendance</h3>
+<p>${student.attendance}%</p>
+</div>
+
+<div class="card">
+<h3>Phone</h3>
+<p>${student.phone}</p>
+</div>
+
+</div>
+
 `;
 
 }
