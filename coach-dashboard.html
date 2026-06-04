@@ -76,7 +76,7 @@ const supabaseClient = supabase.createClient(
 SUPABASE_URL,
 SUPABASE_KEY
 );
-
+loadCoachProfile();
 loadStudents();
 
 async function loadStudents(){
@@ -251,6 +251,30 @@ attendance: 0
 alert("Student Added");
 
 loadStudents();
+
+}
+async function loadCoachProfile(){
+
+document.getElementById("coachProfile").innerHTML = `
+<div style="
+background:linear-gradient(135deg,#000,#3b1f00,#000);
+border:2px solid gold;
+padding:20px;
+border-radius:15px;
+margin-bottom:20px;
+box-shadow:0 0 20px gold;
+">
+
+<h2 style="color:gold;">
+👑 Amit Kumar Yadav
+</h2>
+
+<p style="font-size:18px;">
+🏆 Co-Founder & Head Coach
+</p>
+
+</div>
+`;
 
 }
 </script>
