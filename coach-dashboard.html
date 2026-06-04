@@ -83,8 +83,12 @@ html += `
 <button onclick="markPresent('${student.student_id}')">
 Mark Present
 </button>
-<button onclick="markPresent('${student.student_id}')">
-Mark Present
+<button onclick="addFee('${student.student_id}')">
+Add ₹100 Fee
+</button>
+
+<button onclick="payFee('${student.student_id}')">
+Fee Paid ₹100
 </button>
 
 <p>Pending Fee: ₹${student.pending_fee}</p>
@@ -119,6 +123,46 @@ attendance: Number(data.attendance || 0) + 1
 })
 .eq("student_id", studentId);
 alert("Attendance Saved");
+loadStudents();
+
+}
+async function addFee(studentId){
+
+const { data } = await supabaseClient
+.from("students")
+.select("pending_fee")
+.eq("student_id", studentId)
+.single();
+
+await supabaseClient
+.from("students")
+.update({
+pending_fee: Number(data.pending_fee || 0) + 100
+})
+.eq("student_id", studentId);
+
+loadStudents();
+
+}
+async function payFee(studentId){
+
+const { data } = await supabaseClient
+.from("students")
+.select("paid_fee,pending_fee")
+.eq("student_id", studentId)
+.single();
+
+await supabaseClient
+.from("students")
+.update({
+paid_fee: Number(data.paid_fee || 0) + 100,
+pending_fee: Math.max(
+0,
+Number(data.pending_fee || 0) - 100
+)
+})
+.eq("student_id", studentId);
+
 loadStudents();
 
 }
