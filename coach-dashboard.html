@@ -106,8 +106,20 @@ student_id: studentId,
 status: "Present"
 }
 ]);
+const { data } = await supabaseClient
+.from("students")
+.select("attendance")
+.eq("student_id", studentId)
+.single();
 
+await supabaseClient
+.from("students")
+.update({
+attendance: Number(data.attendance || 0) + 1
+})
+.eq("student_id", studentId);
 alert("Attendance Saved");
+loadStudents();
 
 }
 </script>
