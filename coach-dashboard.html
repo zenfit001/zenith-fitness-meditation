@@ -42,6 +42,23 @@ font-weight:bold;
 
 <h1>Coach Dashboard</h1>
 
+<h2 style="color:gold">New Admission</h2>
+
+<input id="newId" placeholder="Student ID"><br><br>
+
+<input id="newName" placeholder="Student Name"><br><br>
+
+<input id="newPhone" placeholder="Phone"><br><br>
+
+<input id="newPlan" placeholder="Plan"><br><br>
+
+<input id="newFee" placeholder="Total Fee"><br><br>
+
+<button onclick="addStudent()">
+Add Student
+</button>
+
+<br><br>
 <div id="students"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
@@ -195,6 +212,43 @@ Number(data.pending_fee || 0) - 100
 )
 })
 .eq("student_id", studentId);
+
+loadStudents();
+
+}
+async function addStudent(){
+
+const studentId =
+document.getElementById("newId").value;
+
+const name =
+document.getElementById("newName").value;
+
+const phone =
+document.getElementById("newPhone").value;
+
+const plan =
+document.getElementById("newPlan").value;
+
+const fee =
+document.getElementById("newFee").value;
+
+await supabaseClient
+.from("students")
+.insert([
+{
+student_id: studentId,
+password: "123456",
+name: name,
+phone: phone,
+plan: plan,
+paid_fee: 0,
+pending_fee: fee,
+attendance: 0
+}
+]);
+
+alert("Student Added");
 
 loadStudents();
 
