@@ -96,6 +96,12 @@ Add ₹10 Fee
 <button onclick="payFee('${student.student_id}')">
 Fee Paid ₹100
 </button>
+<button onclick="removeFee50('${student.student_id}')">
+Remove ₹50 Fee
+</button>
+<button onclick="removeFee100('${student.student_id}')">
+Remove ₹100 Fee
+</button>
 <p>Paid Fee: ₹${student.paid_fee}</p>
 <p>Pending Fee: ₹${student.pending_fee}</p>
 
@@ -162,6 +168,27 @@ await supabaseClient
 .from("students")
 .update({
 paid_fee: Number(data.paid_fee || 0) + 100,
+pending_fee: Math.max(
+0,
+Number(data.pending_fee || 0) - 100
+)
+})
+.eq("student_id", studentId);
+
+loadStudents();
+
+}
+async function removeFee100(studentId){
+
+const { data } = await supabaseClient
+.from("students")
+.select("pending_fee")
+.eq("student_id", studentId)
+.single();
+
+await supabaseClient
+.from("students")
+.update({
 pending_fee: Math.max(
 0,
 Number(data.pending_fee || 0) - 100
